@@ -1,0 +1,7 @@
+const PAGE_SIZE_ALBUMS = 20
+const PAGE_SIZE_PHOTOS = 20
+
+module.exports = {
+  PAGE_SIZE_ALBUMS,
+  PAGE_SIZE_PHOTOS,
+}
