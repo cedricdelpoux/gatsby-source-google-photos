@@ -5,7 +5,6 @@
     "build": "gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint": "eslint src",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

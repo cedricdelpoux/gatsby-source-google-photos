@@ -40,7 +40,7 @@
     "gatsby": "^2.0.0"
   },
   "scripts": {
-    "lint": "eslint gatsby-node.js utils/* scripts/*",
+    "lint": "eslint gatsby-node.js utils scripts example",
     "prepublishOnly": "yarn lint",
     "token": "./scripts/generate-token.js"
   },
