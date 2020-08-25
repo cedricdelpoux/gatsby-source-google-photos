@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-google-photos",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Gatsby plugin to use Google Photos as a data source",
   "repository": "https://github.com/cedricdelpoux/gatsby-source-google-photos",
   "author": {
@@ -26,13 +26,10 @@
   ],
   "dependencies": {
     "gatsby-source-filesystem": "^2.1.48",
-    "glob": "^7.1.6",
-    "googleapis": "^59.0.0",
-    "googlephotos": "^0.3.3",
-    "inquirer": "^7.0.4"
+    "google-oauth2-env-vars": "^1.0.0",
+    "googlephotos": "^0.3.3"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
     "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.10.0",
     "husky": "^4.2.1",
@@ -40,7 +37,6 @@
     "prettier": "2.0.5"
   },
   "peerDependencies": {
-    "dotenv": "^8.2.0",
     "gatsby": "^2.0.0"
   },
   "scripts": {

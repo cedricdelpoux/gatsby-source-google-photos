@@ -8,6 +8,7 @@ module.exports = {
           "cedricdelpoux.fr/travel/jordan",
           "cedricdelpoux.fr/travel/iceland",
         ],
+        // albumsRegex: /^cedricdelpoux.fr/,
         photosMaxWidth: 512,
         photosMaxHeight: 512,
         photosCrop: true,

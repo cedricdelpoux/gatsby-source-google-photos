@@ -1,14 +1,17 @@
 const GooglePhotos = require("googlephotos")
+const GoogleOAuth2 = require("google-oauth2-env-vars")
 
 const {PAGE_SIZE_ALBUMS, PAGE_SIZE_PHOTOS} = require("./constants")
-const {googleAuth} = require("./google-auth")
 
 exports.sourceNodes = async (
   {actions: {createNode}, createContentDigest, reporter},
   pluginOptions
 ) => {
   try {
-    const auth = googleAuth.getAuth()
+    const googleOAuth2 = new GoogleOAuth2({
+      token: "GOOGLE_PHOTOS_TOKEN",
+    })
+    const auth = await googleOAuth2.getAuth()
     const {token} = await auth.getAccessToken()
     const googlePhotos = new GooglePhotos(token)
     const albums = []

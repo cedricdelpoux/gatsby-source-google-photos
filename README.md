@@ -23,7 +23,18 @@ Why use [Google Photos](https://photos.google.com/) to store your photos:
 yarn add gatsby-source-google-photos gatsby-transformer-sharp gatsby-plugin-sharp
 ```
 
-2. Open a terminal at the root of your project and [Generate a token](./docs/token.md)
+2. [Generate a token](./docs/token.md)
+
+The package needs 3 `.env` variables with the following format to work:
+
+```dotenv
+GOOGLE_OAUTH_CLIENT_ID=2...m.apps.googleusercontent.com
+GOOGLE_OAUTH_CLIENT_SECRET=Q...axL
+YOUTUBE_TOKEN={"access_token":"ya...J0","refresh_token":"1..mE","scope":"https://www.googleapis.com/auth/photoslibrary.readonly","token_type":"Bearer","expiry_date":1598284554759}
+```
+
+`gatsby-source-google-photos` expose a script to make the generation easier.
+Open a terminal at the root of your project and type:
 
 ```shell
 gatsby-source-google-photos-token
@@ -35,14 +46,14 @@ gatsby-source-google-photos-token
 module.exports = {
     plugins: [
         {
-          resolve: "gatsby-source-google-photos",
-          options: {
-            albumsTitles: ["TITLE_A", "TITLE_B"],
-          },
+            resolve: "gatsby-source-google-photos",
+            options: {
+                albumsTitles: ["TITLE_A", "TITLE_B"],
+            },
         },
+        // Recommanded to use with gatsby-image
         "gatsby-transformer-sharp",
         "gatsby-plugin-sharp",
-        }
     ],
 }
 ```
@@ -60,8 +71,7 @@ Please add your website to the [Showcase](./showcase.yml)
 
 -   [Token](./docs/token.md)
 -   [Options](./docs/options.md)
--   [Create pages](./docs/pages.md)
--   [FAQ](./docs/faq.md)
+-   [Queries](./docs/queries.md)
 
 ## Contributing
 
