@@ -41,11 +41,10 @@
   },
   "scripts": {
     "lint": "eslint gatsby-node.js utils scripts example",
-    "prepublishOnly": "yarn lint",
-    "token": "./scripts/generate-token.js"
+    "prepublishOnly": "yarn lint"
   },
   "bin": {
-    "gatsby-source-google-photos-token": "./scripts/generate-token.js"
+    "gatsby-source-google-photos-token": "./utils/generate-token.js"
   },
   "lint-staged": {
     "*.js": [
