@@ -10,6 +10,7 @@
 -   Added: `debug` option
 -   Added: `gatsby-source-google-photos-token` script for token generation
 -   Added: `gatsby-image` compatibility
+-   Added: `latestDate` and `oldestDate` metadata to albums
 -   Deleted: `clientId` option
 -   Deleted: `clientSecret` option
 

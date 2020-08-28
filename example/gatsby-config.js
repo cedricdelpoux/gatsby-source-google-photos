@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   plugins: [
     {
@@ -5,10 +7,9 @@ module.exports = {
       resolve: require.resolve(`..`),
       options: {
         albumsTitles: [
-          "cedricdelpoux.fr/travel/jordan",
-          "cedricdelpoux.fr/travel/iceland",
+          process.env.GOOGLE_PHOTOS_ALBUM_1,
+          process.env.GOOGLE_PHOTOS_ALBUM_2,
         ],
-        // albumsRegex: /^cedricdelpoux.fr/,
         photosMaxWidth: 512,
         photosMaxHeight: 512,
         photosCrop: true,

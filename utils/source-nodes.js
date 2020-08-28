@@ -1,6 +1,8 @@
 const GooglePhotos = require("googlephotos")
 const GoogleOAuth2 = require("google-oauth2-env-vars")
 
+const {computeDatesRange} = require("./compute-dates-range")
+
 const {PAGE_SIZE_ALBUMS, PAGE_SIZE_PHOTOS} = require("./constants")
 
 exports.sourceNodes = async (
@@ -69,11 +71,11 @@ exports.sourceNodes = async (
       timerAlbumsFetching.end()
     }
 
-    for (const album of albums) {
+    for (let album of albums) {
       const timerAlbumPhotosFetching = reporter.activityTimer(
         `source-google-photos: Fetching ${album.title} album photos`
       )
-      const photos = []
+      let photos = []
       let nextPageToken
 
       if (pluginOptions.debug) {
@@ -104,9 +106,18 @@ exports.sourceNodes = async (
         timerAlbumPhotosFetching.end()
       }
 
+      if (pluginOptions.albumsUpdate) {
+        const {
+          photos: photosAfterUpdate,
+          ...albumAfterUpdate
+        } = pluginOptions.albumsUpdate({...album, photos})
+        album = albumAfterUpdate
+        photos = photosAfterUpdate
+      }
+
       createNode({
         ...album,
-        ...(pluginOptions.albumsUpdate && pluginOptions.albumsUpdate(album)),
+        ...computeDatesRange(photos),
         photos___NODE: photos.map((photo) => photo.id),
         internal: {
           type: "GooglePhotosAlbum",
