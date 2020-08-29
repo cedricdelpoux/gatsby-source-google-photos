@@ -3,7 +3,12 @@ const GoogleOAuth2 = require("google-oauth2-env-vars")
 
 const {computeDatesRange} = require("./compute-dates-range")
 
-const {PAGE_SIZE_ALBUMS, PAGE_SIZE_PHOTOS} = require("./constants")
+const {
+  NODE_TYPE_ALBUM,
+  NODE_TYPE_PHOTO,
+  PAGE_SIZE_ALBUMS,
+  PAGE_SIZE_PHOTOS,
+} = require("./constants")
 
 exports.sourceNodes = async (
   {actions: {createNode}, createContentDigest, reporter},
@@ -115,12 +120,17 @@ exports.sourceNodes = async (
         photos = photosAfterUpdate
       }
 
+      const albumCover = photos.find(
+        (photo) => photo.id === album.coverPhotoMediaItemId
+      )
+
       createNode({
         ...album,
         ...computeDatesRange(photos),
+        cover___NODE: albumCover && albumCover.id,
         photos___NODE: photos.map((photo) => photo.id),
         internal: {
-          type: "GooglePhotosAlbum",
+          type: NODE_TYPE_ALBUM,
           contentDigest: createContentDigest(album),
         },
       })
@@ -130,7 +140,7 @@ exports.sourceNodes = async (
           ...photo,
           album___NODE: album.id,
           internal: {
-            type: "GooglePhotosPhoto",
+            type: NODE_TYPE_PHOTO,
             contentDigest: createContentDigest(photo),
           },
         })
