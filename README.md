@@ -1,6 +1,19 @@
-# gatsby-source-google-photos
+<div align="center">
+  <h1>gatsby-source-google-photos</h1>
+  <br/>
+  <p>
+    <img src="./logo.png" alt="gatsby-source-google-photos" height="100px">
+  </p>
+  <br/>
 
-[![npm package][npm-badge]][npm]
+[![Npm version][badge-npm]][npm]
+[![Npm downloads][badge-npm-dl]][npm]
+[![MIT license][badge-licence]](./LICENCE.md)
+[![PRs welcome][badge-prs-welcome]](#contributing)
+
+</div>
+
+---
 
 `gatsby-source-google-photos` is a [Gatsby](https://www.gatsbyjs.org/) plugin to use [Google Photos](https://photos.google.com/) as a data source.
 
@@ -87,6 +100,9 @@ See [CHANGELOG](./CHANGELOG.md)
 This project is licensed under the MIT License - see the
 [LICENCE](./LICENCE.md) file for details
 
-[npm-badge]: https://img.shields.io/npm/v/gatsby-source-google-photos.svg?style=flat-square
+[badge-npm]: https://img.shields.io/npm/v/gatsby-source-google-photos.svg?style=flat-square
+[badge-npm-dl]: https://img.shields.io/npm/dt/gatsby-source-google-photos.svg?style=flat-square
+[badge-licence]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+[badge-prs-welcome]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [npm]: https://www.npmjs.org/package/gatsby-source-google-photos
 [github-issue]: https://github.com/cedricdelpoux/gatsby-source-google-photos/issues/new
