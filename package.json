@@ -24,16 +24,16 @@
     "utils"
   ],
   "dependencies": {
-    "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-source-filesystem": "^2.3.30",
     "google-oauth2-env-vars": "^1.0.0",
     "googlephotos": "^0.3.3"
   },
   "devDependencies": {
-    "eslint": "^7.7.0",
-    "eslint-config-prettier": "^6.10.0",
-    "husky": "^4.2.1",
-    "lint-staged": "^10.0.7",
-    "prettier": "2.0.5"
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "2.1.2"
   },
   "peerDependencies": {
     "gatsby": "^2.0.0"
