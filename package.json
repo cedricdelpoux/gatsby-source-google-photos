@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "gatsby-source-filesystem": "^2.3.30",
-    "google-oauth2-env-vars": "^1.0.0",
+    "google-oauth2-env-vars": "^1.1.0",
     "googlephotos": "^0.3.3"
   },
   "devDependencies": {

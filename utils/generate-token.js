@@ -10,17 +10,9 @@ async function generateToken() {
     apis: ["photoslibrary.googleapis.com"],
   })
 
-  let envVars
+  await googleOAuth2.generateEnvVars()
 
-  try {
-    envVars = googleOAuth2.getEnvVars()
-  } catch (e) {
-    envVars = await googleOAuth2.getNewEnvVars()
-  }
-
-  console.log(envVars)
   console.log("")
-  console.log("Stored in your .env files")
   console.log("Enjoy `gatsby-source-google-photos` plugin")
 
   process.exit()
