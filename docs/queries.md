@@ -44,7 +44,7 @@ export default ({data: {allGooglePhotosAlbum}}) => {
         <>
             <h2>{albumNode.title}</h2>
             <div style={{width: 500}}>
-                <Img fluid={albumNode.cover.childImageSharp.fluid} />
+                <Img fluid={albumNode.cover.photo.childImageSharp.fluid} />
             </div>
             <div>{"Photos:"}</div>
             {albumNode.photos.map((photoNode) => (
@@ -62,9 +62,11 @@ export const pageQuery = graphql`
             nodes {
                 title
                 cover {
-                    childImageSharp {
-                        fluid(maxWidth: 500, quality: 100) {
-                            ...GatsbyImageSharpFluid
+                    photo {
+                        childImageSharp {
+                            fluid(maxWidth: 500, quality: 100) {
+                                ...GatsbyImageSharpFluid
+                            }
                         }
                     }
                 }
