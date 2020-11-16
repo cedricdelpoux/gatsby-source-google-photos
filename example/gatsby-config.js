@@ -6,12 +6,9 @@ module.exports = {
       //resolve: "gatsby-source-google-photos"
       resolve: require.resolve(`..`),
       options: {
-        albumsTitles: [
-          process.env.GOOGLE_PHOTOS_ALBUM_1,
-          process.env.GOOGLE_PHOTOS_ALBUM_2,
-        ],
-        photosMaxWidth: 512,
-        photosMaxHeight: 512,
+        albumsTitles: [process.env.GOOGLE_PHOTOS_ALBUM],
+        photosMaxWidth: 1024,
+        photosMaxHeight: 1024,
         photosCrop: true,
         debug: true,
       },

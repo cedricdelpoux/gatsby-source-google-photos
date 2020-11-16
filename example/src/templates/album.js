@@ -7,7 +7,7 @@ export default ({data: {googlePhotosAlbum}}) => {
     <>
       <div>{googlePhotosAlbum.title}</div>
       {googlePhotosAlbum.photos.map((photoNode) => (
-        <div key={photoNode.id} style={{width: 500}}>
+        <div key={photoNode.id} style={{width: 1024}}>
           <Img fluid={photoNode.photo.childImageSharp.fluid} />
         </div>
       ))}
@@ -22,7 +22,7 @@ export const pageQuery = graphql`
       photos {
         photo {
           childImageSharp {
-            fluid(maxWidth: 500, quality: 100) {
+            fluid(maxWidth: 1024, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
