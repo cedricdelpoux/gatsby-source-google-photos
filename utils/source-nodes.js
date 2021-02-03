@@ -25,7 +25,9 @@ exports.sourceNodes = async (
 
     let nextPageToken
     let page = 1
-
+    
+    const NEW_PAGE_SIZE_PHOTOS = pluginOptions.pageSizePhotos || PAGE_SIZE_PHOTOS
+    
     const filterTitle = (album) =>
       pluginOptions.albumsTitles.includes(album.title)
     const filterRegex = (album) => pluginOptions.albumsRegex.test(album.title)
@@ -90,7 +92,7 @@ exports.sourceNodes = async (
       do {
         const result = await googlePhotos.mediaItems.search(
           album.id,
-          PAGE_SIZE_PHOTOS,
+          NEW_PAGE_SIZE_PHOTOS,
           nextPageToken
         )
 
