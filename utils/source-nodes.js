@@ -112,10 +112,8 @@ exports.sourceNodes = async (
       }
 
       if (pluginOptions.albumsUpdate) {
-        const {
-          photos: photosAfterUpdate,
-          ...albumAfterUpdate
-        } = pluginOptions.albumsUpdate({...album, photos})
+        const {photos: photosAfterUpdate, ...albumAfterUpdate} =
+          pluginOptions.albumsUpdate({...album, photos})
         album = albumAfterUpdate
         photos = photosAfterUpdate
       }
@@ -135,7 +133,7 @@ exports.sourceNodes = async (
         },
       })
 
-      photos.forEach((photo) => {
+      for (const photo of photos) {
         createNode({
           ...photo,
           album___NODE: album.id,
@@ -144,7 +142,7 @@ exports.sourceNodes = async (
             contentDigest: createContentDigest(photo),
           },
         })
-      })
+      }
     }
 
     return

@@ -64,9 +64,10 @@ module.exports = {
                 albumsTitles: ["TITLE_A", "TITLE_B"],
             },
         },
-        // Recommanded to use with gatsby-image
+        // Recommanded to use with gatsby-plugin-image
         "gatsby-transformer-sharp",
         "gatsby-plugin-sharp",
+        "gatsby-plugin-image",
     ],
 }
 ```

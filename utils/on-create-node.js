@@ -4,7 +4,14 @@ const {addPhotoUrlParameters} = require("./add-photo-url-parameters")
 const {NODE_TYPE_PHOTO, REGEX_MIME_EXT, DEFAULT_EXT} = require("./constants")
 
 exports.onCreateNode = async (
-  {node, actions: {createNode}, store, cache, createNodeId, reporter},
+  {
+    node,
+    actions: {createNode, createNodeField},
+    store,
+    cache,
+    createNodeId,
+    reporter,
+  },
   pluginOptions = {}
 ) => {
   if (node.internal.type === NODE_TYPE_PHOTO && node.baseUrl) {
@@ -23,7 +30,7 @@ exports.onCreateNode = async (
         reporter,
       })
 
-      node.photo___NODE = fileNode.id
+      createNodeField({node, name: "localFile", value: fileNode.id})
     } catch (e) {
       reporter.warn(`source-google-photos: ${e}`)
     }

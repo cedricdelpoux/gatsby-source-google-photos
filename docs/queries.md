@@ -4,13 +4,13 @@
 
 ```js
 import React from "react"
-import Img from "gatsby-image"
+import {GatsbyImage, getImage} from "gatsby-plugin-image"
 import {graphql} from "gatsby"
 
 export default ({data: {allGooglePhotosPhoto}}) => {
     return allGooglePhotosPhoto.nodes.map((photoNode) => (
         <div style={{width: 500}}>
-            <Img fluid={photoNode.photo.childImageSharp.fluid} />
+            <GatsbyImage image={getImage(photoNode.file)} />
         </div>
     ))
 }
@@ -19,11 +19,9 @@ export const pageQuery = graphql`
     query {
         allGooglePhotosPhoto {
             nodes {
-                photo {
+                file {
                     childImageSharp {
-                        fluid(maxWidth: 500, quality: 100) {
-                            ...GatsbyImageSharpFluid
-                        }
+                        gatsbyImageData
                     }
                 }
             }
@@ -36,7 +34,7 @@ export const pageQuery = graphql`
 
 ```js
 import React from "react"
-import Img from "gatsby-image"
+import {GatsbyImage, getImage} from "gatsby-plugin-image"
 import {graphql} from "gatsby"
 
 export default ({data: {allGooglePhotosAlbum}}) => {
@@ -44,12 +42,12 @@ export default ({data: {allGooglePhotosAlbum}}) => {
         <>
             <h2>{albumNode.title}</h2>
             <div style={{width: 500}}>
-                <Img fluid={albumNode.cover.photo.childImageSharp.fluid} />
+                <GatsbyImage image={getImage(albumNode.cover.file)} />
             </div>
             <div>{"Photos:"}</div>
             {albumNode.photos.map((photoNode) => (
                 <div style={{width: 500}}>
-                    <Img fluid={photoNode.photo.childImageSharp.fluid} />
+                    <GatsbyImage image={getImage(photoNode.file)} />
                 </div>
             ))}
         </>
@@ -62,20 +60,16 @@ export const pageQuery = graphql`
             nodes {
                 title
                 cover {
-                    photo {
+                    file {
                         childImageSharp {
-                            fluid(maxWidth: 500, quality: 100) {
-                                ...GatsbyImageSharpFluid
-                            }
+                            gatsbyImageData
                         }
                     }
                 }
                 photos {
-                    photo {
+                    file {
                         childImageSharp {
-                            fluid(maxWidth: 500, quality: 100) {
-                                ...GatsbyImageSharpFluid
-                            }
+                            gatsbyImageData
                         }
                     }
                 }

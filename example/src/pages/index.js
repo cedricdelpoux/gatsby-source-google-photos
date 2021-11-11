@@ -1,21 +1,23 @@
+import {Link, graphql} from "gatsby"
+import {GatsbyImage, getImage} from "gatsby-plugin-image"
 import React from "react"
-import Img from "gatsby-image"
-import {graphql, Link} from "gatsby"
 
-export default ({data: {allGooglePhotosAlbum}}) => {
+const PageIndex = ({data: {allGooglePhotosAlbum}}) => {
   return (
     <>
       {allGooglePhotosAlbum.nodes.map((albumNode) => (
         <Link key={albumNode.id} to={`/album/${albumNode.id}`}>
           <div>{albumNode.title}</div>
           <div style={{width: 500}}>
-            <Img fluid={albumNode.cover.photo.childImageSharp.fluid} />
+            <GatsbyImage image={getImage(albumNode.cover.file)} />
           </div>
         </Link>
       ))}
     </>
   )
 }
+
+export default PageIndex
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -24,11 +26,9 @@ export const pageQuery = graphql`
         id
         title
         cover {
-          photo {
+          file {
             childImageSharp {
-              fluid(maxWidth: 500, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData
             }
           }
         }

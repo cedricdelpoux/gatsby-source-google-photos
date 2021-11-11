@@ -1,30 +1,30 @@
-import React from "react"
-import Img from "gatsby-image"
 import {graphql} from "gatsby"
+import {GatsbyImage, getImage} from "gatsby-plugin-image"
+import React from "react"
 
-export default ({data: {googlePhotosAlbum}}) => {
+const TemplateAlbum = ({data: {googlePhotosAlbum}}) => {
   return (
     <>
       <div>{googlePhotosAlbum.title}</div>
       {googlePhotosAlbum.photos.map((photoNode) => (
         <div key={photoNode.id} style={{width: 1024}}>
-          <Img fluid={photoNode.photo.childImageSharp.fluid} />
+          <GatsbyImage image={getImage(photoNode.file)} />
         </div>
       ))}
     </>
   )
 }
 
+export default TemplateAlbum
+
 export const pageQuery = graphql`
   query AlbumQuery($id: String!) {
     googlePhotosAlbum(id: {eq: $id}) {
       title
       photos {
-        photo {
+        file {
           childImageSharp {
-            fluid(maxWidth: 1024, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
