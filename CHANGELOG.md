@@ -1,3 +1,8 @@
+# 3.0.0
+
+-   Added: **Gatsby v4** compatible
+-   Updated: Replace `photo` field by `file`
+
 # 2.0.0
 
 -   Updated: Source code rewrited from scratch
