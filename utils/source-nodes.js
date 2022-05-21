@@ -94,6 +94,10 @@ exports.sourceNodes = async (
           nextPageToken
         )
 
+        if (!result || !result.mediaItems) {
+          break;
+        }
+
         photos.push(
           ...result.mediaItems.filter(
             (mediaItem) => mediaItem.mediaMetadata.photo
