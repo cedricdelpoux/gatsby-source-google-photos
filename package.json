@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-google-photos",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Gatsby plugin to use Google Photos as a data source",
   "repository": "https://github.com/cedricdelpoux/gatsby-source-google-photos",
   "author": {
