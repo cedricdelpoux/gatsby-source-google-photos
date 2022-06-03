@@ -1,3 +1,16 @@
+# 3.1.0
+
+-   Added: Handle YAML descriptions
+
+Example :
+
+```
+weather: sunny
+type: castle
+```
+
+Data will be spred to `photo` object
+
 # 3.0.0
 
 -   Added: **Gatsby v4** compatible

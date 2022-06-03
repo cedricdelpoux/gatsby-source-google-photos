@@ -26,7 +26,7 @@ Why use [Google Photos](https://photos.google.com/) to store your photos:
 -   📱 Mobile app
 -   🖍 In-app photos edition
 -   💾 Automatic backup from your phone
--   🌈 `gatsby-image` compatible
+-   🌈 `gatsby-plugin-image` compatible
 
 ## Usage
 
@@ -50,7 +50,7 @@ YOUTUBE_TOKEN={"access_token":"ya...J0","refresh_token":"1..mE","scope":"https:/
 Open a terminal at the root of your project and type:
 
 ```shell
-gatsby-source-google-photos-token
+npx gatsby-source-google-photos-token
 ```
 
 3. [Add the plugin](./docs/options.md) in your `gatsby-config.js` file
