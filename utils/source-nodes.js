@@ -2,6 +2,7 @@ const GooglePhotos = require("googlephotos")
 const GoogleOAuth2 = require("google-oauth2-env-vars")
 
 const {computeDatesRange} = require("./compute-dates-range")
+const {transformPhoto} = require("./transform-photo")
 
 const {
   NODE_TYPE_ALBUM,
@@ -95,13 +96,13 @@ exports.sourceNodes = async (
         )
 
         if (!result || !result.mediaItems) {
-          break;
+          break
         }
 
         photos.push(
-          ...result.mediaItems.filter(
-            (mediaItem) => mediaItem.mediaMetadata.photo
-          )
+          ...result.mediaItems
+            .filter((mediaItem) => mediaItem.mediaMetadata.photo)
+            .map(transformPhoto)
         )
 
         if (pluginOptions.debug) {
